@@ -1,3 +1,4 @@
+import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 import { ApolloServer, ApolloServerExpressConfig } from 'apollo-server-express';
 import { Application } from 'express';
 import depthLimit from 'graphql-depth-limit';
@@ -10,6 +11,7 @@ export const createApolloServer = (config: ApolloServerExpressConfig) => {
         introspection: true,
         context: createContext,
         validationRules: [depthLimit(6)],
+        plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
         ...config
     });
 

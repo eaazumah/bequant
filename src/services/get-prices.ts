@@ -12,6 +12,7 @@ const getPrices = async (fsyms: string, tsyms: string) => {
         let data: any = res.data;
 
         if (data) {
+            // save data to mongo db
             await PricePairs.findOneAndReplace(
                 { name: `${tsyms}${tsyms}` },
                 {
@@ -23,6 +24,7 @@ const getPrices = async (fsyms: string, tsyms: string) => {
                 }
             );
         } else {
+            // no data from api get data from mongo db
             const doc: any = await PricePairs.findOne({ name: `${tsyms}${tsyms}` });
             data = JSON.parse(doc?.data);
         }
