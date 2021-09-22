@@ -103,16 +103,12 @@ http://localhost:3000?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
 
 Add and event listeners for `data`
 
+**[Firecamp](https://socket.io/docs/v3/client-api/)** socket io environment can be used for testing
+
 ## IV. Packaging and Deployment
 
 The mongo container is only only available in dev environment. When you build and deploy the docker image, be sure to
 provide the correct **[environment variables](#environment)**.
-
-#### 1. Build and run without Docker
-
-```
-$ npm run build && npm run start
-```
 
 ---
 
@@ -125,17 +121,6 @@ To edit environment variables, create a file with name `.env` and copy the conte
 | NODE_ENV     | string | `development` | API runtime environment. eg: `staging` |
 | PORT         | number | `3000`        | Port to run the API server on          |
 | MONGO_DB_URI | string | ``            | URL for MongoDB                        |
-
-## Logging
-
-The application uses [winston](https://github.com/winstonjs/winston) as the default logger. The configuration file is at
-`src/logger.ts`.
-
--   All logs are saved in `./logs` directory and at `/logs` in the docker container.
--   The `docker-compose` file has a volume attached to container to expose host directory to the container for writing
-    logs.
--   Console messages are prettified
--   Each line in error log file is a stringified JSON.
 
 ### Directory Structure
 
