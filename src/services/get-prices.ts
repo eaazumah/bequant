@@ -14,9 +14,9 @@ const getPrices = async (fsyms: string, tsyms: string) => {
         if (data) {
             // save data to mongo db
             await PricePairs.findOneAndReplace(
-                { name: `${tsyms}${tsyms}` },
+                { name: `${fsyms}${tsyms}` },
                 {
-                    name: `${tsyms}${tsyms}`,
+                    name: `${fsyms}${tsyms}`,
                     data: JSON.stringify(data)
                 },
                 {
@@ -25,12 +25,12 @@ const getPrices = async (fsyms: string, tsyms: string) => {
             );
         } else {
             // no data from api get data from mongo db
-            const doc: any = await PricePairs.findOne({ name: `${tsyms}${tsyms}` });
+            const doc: any = await PricePairs.findOne({ name: `${fsyms}${tsyms}` });
             data = JSON.parse(doc?.data);
         }
         return data;
     } catch (error) {
-        const doc: any = await PricePairs.findOne({ name: `${tsyms}${tsyms}` });
+        const doc: any = await PricePairs.findOne({ name: `${fsyms}${tsyms}` });
         return JSON.parse(doc?.data);
     }
 };
