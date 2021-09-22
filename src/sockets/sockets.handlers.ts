@@ -1,4 +1,4 @@
-import { scheduleJob } from 'node-schedule';
+import { scheduledJobs, scheduleJob } from 'node-schedule';
 import getPrices from '../services/get-prices';
 
 const onConnection = (socket: any, io: any) => {
@@ -6,20 +6,19 @@ const onConnection = (socket: any, io: any) => {
     const fsyms = socket.handshake?.query?.['fsyms'] as string;
     const tsyms = socket.handshake?.query?.['tsyms'] as string;
 
-    const roomId = `${tsyms}${tsyms}`;
-
-    socket.join(roomId);
+    socket.join(socket.id);
 
     const jobTask = async () => {
         let data = await getPrices(fsyms, tsyms);
-        io.to(roomId).emit('data', data);
+        io.to(socket.id).emit('data', data);
     };
 
     // this job runs very minute
-    scheduleJob(roomId, '*/1 * * * *', jobTask);
+    scheduleJob(socket.id, '*/1 * * * *', jobTask);
 
     socket.on('disconnect', () => {
         console.log('user disconnected');
+        scheduledJobs[socket.id]?.cancel();
     });
 };
 
