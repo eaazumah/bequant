@@ -82,6 +82,9 @@ https://baqust-price-test.herokuapp.com/graphql/
 
 Will open a graphql playground
 
+Please note graphql playground has been disable on production server **[Firecamp](https://firecamp.io/)** graphql
+environment can be used for testing
+
 ### Example query
 
 ```
@@ -121,7 +124,7 @@ https://baqust-price-test.herokuapp.com/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,E
 
 Add and event listeners for `data`
 
-**[Firecamp](https://socket.io/docs/v3/client-api/)** socket io environment can be used for testing
+**[Firecamp](https://firecamp.io/)** socket io environment can be used for testing
 
 ## Deployment
 
