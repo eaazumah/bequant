@@ -8,6 +8,7 @@ import createContext from './create.apollo.context';
 export const createApolloServer = (config: ApolloServerExpressConfig) => {
     const server = new ApolloServer({
         schema,
+        playground: true,
         introspection: true,
         context: createContext,
         validationRules: [depthLimit(6)],
