@@ -57,7 +57,13 @@ Running the above commands results in
 ## REST
 
 ```
+Local
 http://localhost:3000/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
+```
+
+```
+Live
+https://baqust-price-test.herokuapp.com/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
 ```
 
 Will return all pair prices
@@ -65,7 +71,13 @@ Will return all pair prices
 ## GRAPHQL
 
 ```
-http://localhost:3000/graphql
+Local
+http://localhost:3000/graphql/
+```
+
+```
+Live
+https://baqust-price-test.herokuapp.com/graphql/
 ```
 
 Will open a graphql playground
@@ -98,17 +110,28 @@ Using the the **[socket io client library](https://socket.io/docs/v3/client-api/
 fsyms and tsyms can be change to much client needs
 
 ```
+Local
 http://localhost:3000?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
+```
+
+```
+Live
+https://baqust-price-test.herokuapp.com/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
 ```
 
 Add and event listeners for `data`
 
 **[Firecamp](https://socket.io/docs/v3/client-api/)** socket io environment can be used for testing
 
-## IV. Packaging and Deployment
+## Deployment
 
-The mongo container is only only available in dev environment. When you build and deploy the docker image, be sure to
-provide the correct **[environment variables](#environment)**.
+A deploy CI has been setup to auto deploy on push to main to heroku
+
+You checkout the live server at
+
+-   🌏**API Server** running at `https://baqust-price-test.herokuapp.com`
+-   🌏**SOCKET.IO Server** running at `https://baqust-price-test.herokuapp.com/`
+-   🌏**GRAPH QL Server** running at `https://baqust-price-test.herokuapp.com/graphql`
 
 ---
 
