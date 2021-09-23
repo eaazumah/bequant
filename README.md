@@ -56,13 +56,13 @@ Running the above commands results in
 
 ## REST
 
-```
 Local
+```
 http://localhost:3000/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
 ```
 
-```
 Live
+```
 https://baqust-price-test.herokuapp.com/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
 ```
 
@@ -70,13 +70,13 @@ Will return all pair prices
 
 ## GRAPHQL
 
-```
 Local
+```
 http://localhost:3000/graphql/
 ```
 
-```
 Live
+```
 https://baqust-price-test.herokuapp.com/graphql/
 ```
 
