@@ -26,8 +26,8 @@ A few things to note in the project:
 #### 1. Clone this repo
 
 ```
-$ git clone git@github.com:sidhantpanda/docker-express-typescript-boilerplate.git your-app-name
-$ cd your-app-name
+$ git git@github.com:eaazumah/bequant.git
+$ cd bequant
 ```
 
 #### 2. Install dependencies
