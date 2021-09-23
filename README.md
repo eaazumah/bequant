@@ -17,7 +17,6 @@ A few things to note in the project:
 -   **[Apollo Sever](https://www.apollographql.com/docs/apollo-server/)** - Apollo Sever is used as a graphql sever.
 
 -   **[.env file for configuration](#environment)** - Change server config like app port, mongo url etc
--   **[Winston Logger](#logging)** - Uses winston as the logger for the application.
 
 -   **Mocha** - Using Mocha for running test cases
 
